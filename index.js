@@ -1,9 +1,24 @@
-var pady = ["Nominativ", "Genitiv", "Dativ", "Akuzativ", "Vokativ", "Lokál", "Instrumentál"];
+// ==UserScript==
+// @name         priruckaHelper
+// @namespace    http://tampermonkey.net/
+// @version      0.1
+// @description  try to take over the world!
+// @author       Me
+// @match        https://prirucka.ujc.cas.cz/*
+// @icon         data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
+// @grant        none
+// ==/UserScript==
 
-var tables = document.getElementsByClassName("para");
-for (var tableNr = 0; tableNr < tables.length; tableNr++) {
-  var firstColumn = tables[tableNr].getElementsByClassName("vlevo");
-  for (var i = 0; i < firstColumn.length; i++) {
-    firstColumn[i].innerText += " (" + pady[i] + ")";
-  }
-}
+(function() {
+    'use strict';
+
+      var pady = ["Nominativ", "Genitiv", "Dativ", "Akuzativ", "Vokativ", "Lokál", "Instrumentál"];
+
+      var tables = document.getElementsByClassName("para");
+      for (var tableNr = 0; tableNr < tables.length; tableNr++) {
+        var firstColumn = tables[tableNr].getElementsByClassName("vlevo");
+        for (var i = 0; i < firstColumn.length; i++) {
+          firstColumn[i].innerText += " (" + pady[i] + ")";
+        }
+      }
+})();
